@@ -1,4 +1,6 @@
 SimpleVoting::Application.routes.draw do
+  devise_for :users
+
   resources :topics do
     member do
       post 'vote'
