@@ -1,12 +1,12 @@
 class TopicsController < ApplicationController
   before_filter :authenticate_user!
-  
+  include ActionView::Helpers::TextHelper
   def vote
     topic = Topic.find(params[:id])
-    if topic.vote
-      redirect_to root_path, notice: 'Thanks for voting!'
+    if topic.vote(current_user)
+      redirect_to root_path, notice: "Thanks for voting! You have #{pluralize(current_user.votes_left,'Vote')} left."
     else
-      redirect_to root_path, notice: 'Your vote couldn\'t be saved.'
+      redirect_to root_path, alert: topic.errors[:votes].first
     end
   end
   

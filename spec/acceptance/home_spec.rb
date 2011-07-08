@@ -25,21 +25,10 @@ describe 'home page' do
     page.should have_content('coffeescript')
     page.should have_content('sass')
   end
-  
-  it 'should allow voting on topics' do
-    login
-    Factory.create(:topic, title: 'controller testing')
-    visit root_path
-    click_link 'Vote!'
-    current_path.should == root_path
-    page.should have_content '1 Vote'
-    click_link 'Vote!'
-    page.should have_content '2 Votes'
-  end
 end
 
 def login
-  Factory.create(:user)
+  @user = Factory.create(:user)
   visit new_user_session_path
   fill_in 'Email', with: 'test@example.com'
   fill_in 'Password', with: 'password'
