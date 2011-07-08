@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def vote
     topic = Topic.find(params[:id])
     if topic.vote

@@ -29,6 +29,8 @@ group :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+	gem 'launchy'
+	gem 'database_cleaner'
 end
 
 gem 'devise'
