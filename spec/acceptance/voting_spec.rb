@@ -31,6 +31,6 @@ describe 'voting' do
     
     click_link 'Vote!'
     @user.reload
-    page.should have_content "You do not have any more votes!"
+    page.should have_content "Thanks for voting! You have 0 Votes left."
   end
 end
