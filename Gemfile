@@ -33,5 +33,9 @@ group :test do
 	gem 'database_cleaner'
 end
 
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+end
+
 gem 'devise'
 gem 'cancan'
