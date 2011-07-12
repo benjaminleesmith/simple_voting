@@ -34,7 +34,7 @@ group :test do
 end
 
 group :production do
-  gem 'therubyracer-heroku', :git => 'git://github.com/aler/therubyracer-heroku.git'
+  gem "therubyracer-heroku", "~> 0.8.1.pre3"
 end
 
 gem 'devise'
