@@ -13,3 +13,11 @@ describe 'authentication' do
     page.should have_content 'Logout'
   end
 end
+
+def login
+  @user = Factory.create(:user)
+  visit new_user_session_path
+  fill_in 'Email', with: 'test@example.com'
+  fill_in 'Password', with: 'password'
+  click_button 'Sign in'
+end

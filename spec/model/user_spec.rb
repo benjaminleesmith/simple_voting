@@ -26,5 +26,12 @@ describe 'user' do
       user.reload
       user.votes_left.should == 0
     end
+    
+    it 'should not allow admin to be set via mass assignment' do
+      user = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password', :admin => true)
+      user.save!
+      user.reload
+      user.admin.should_not be
+    end
   end
 end
