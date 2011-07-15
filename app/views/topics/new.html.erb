@@ -1,5 +1,11 @@
-<h1>New topic</h1>
+<div class="span-16 prepend-3">
+  <h1>New topic</h1>
+</div>
+<div class="span-5">
+  When you create a new topic, you will receive 2 extra votes. Spend them wisely.
+</div>
+<div class="span-14 last">
+  <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', topics_path %>
+  <%= link_to 'Back', topics_path %>
+</div>
