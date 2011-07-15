@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SimpleVoting</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<p class="alert"><%= alert %></p>
+<p id="notice"><%= notice %></p>
+<%= yield %>
+<% if user_signed_in? %>
+	<div>
+		<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+	</div>
+	<div>
+		You have <%= pluralize(current_user.votes_left, 'Vote') %> left.
+	</div>
+<% end %>
+
+</body>
+</html>
