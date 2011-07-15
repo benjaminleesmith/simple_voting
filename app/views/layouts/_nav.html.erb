@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+    You have <%= pluralize(current_user.votes_left, 'Vote') %> left.
+<% end %>
+<br/>
+<%= link_to 'Create Topic', new_topic_path %>
+<br/>
+<%= link_to 'View Topics', topics_path %>
+<br/>
+<% if user_signed_in? %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% end %>
