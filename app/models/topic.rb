@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
   attr_accessor :user
   validate :validate_user_votes
+  validates_presence_of :title
   
   def vote(u)
     self.user = u
