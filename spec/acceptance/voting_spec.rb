@@ -5,7 +5,7 @@ describe 'voting' do
 
   it 'should allow voting on topics' do
     login
-    Factory.create(:topic, title: 'controller testing')
+    Factory.create(:topic, title: 'controller testing', user: @user)
     visit root_path
     click_link 'Vote!'
     current_path.should == root_path
@@ -16,7 +16,7 @@ describe 'voting' do
   
   it 'should decrement the votes left for a user when voting' do
     login
-    Factory.create(:topic, title: 'controller testing')
+    Factory.create(:topic, title: 'controller testing', user: @user )
     @user.votes_left = 3
     @user.save!
     

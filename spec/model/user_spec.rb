@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'user' do
   describe 'topic.vote' do
     before do
-      @topic = Factory.create(:topic)
+      @topic = Factory.create(:topic, user: Factory(:user, email: 'topic@creator.com'))
     end
     
     it 'should decrement the users votes_left' do

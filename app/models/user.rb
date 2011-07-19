@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   attr_protected :admin
   
   WEEKLY_VOTES = 2
+  NEW_TOPIC_VOTES = 2
 end

@@ -11,12 +11,12 @@ describe 'home page' do
   
   it 'should show list of votable topics' do
     login
-    Factory.create(:topic, title: 'controller testing')
-    Factory.create(:topic, title: 'model testing')
-    Factory.create(:topic, title: 'javascript testing')
-    Factory.create(:topic, title: 'acceptance testing')
-    Factory.create(:topic, title: 'coffeescript')
-    Factory.create(:topic, title: 'sass')
+    Factory.create(:topic, title: 'controller testing', user: @user)
+    Factory.create(:topic, title: 'model testing', user: @user)
+    Factory.create(:topic, title: 'javascript testing', user: @user)
+    Factory.create(:topic, title: 'acceptance testing', user: @user)
+    Factory.create(:topic, title: 'coffeescript', user: @user)
+    Factory.create(:topic, title: 'sass', user: @user)
     visit '/'
     page.should have_content('controller testing')
     page.should have_content('model testing')
@@ -25,12 +25,4 @@ describe 'home page' do
     page.should have_content('coffeescript')
     page.should have_content('sass')
   end
-end
-
-def login
-  @user = Factory.create(:user)
-  visit new_user_session_path
-  fill_in 'Email', with: 'test@example.com'
-  fill_in 'Password', with: 'password'
-  click_button 'Sign in'
 end

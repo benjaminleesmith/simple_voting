@@ -51,7 +51,7 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(params[:topic])
+    @topic = Topic.new(params[:topic].merge({user: current_user}))
 
     respond_to do |format|
       if @topic.save
