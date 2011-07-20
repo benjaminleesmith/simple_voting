@@ -7,5 +7,7 @@
 <%= link_to 'View Topics', topics_path %>
 <br/>
 <% if user_signed_in? %>
+    <%= link_to 'Change Password', edit_user_registration_path %>
+    <br/>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 <% end %>

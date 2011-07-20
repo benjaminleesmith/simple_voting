@@ -1,9 +1,8 @@
 class Devise::RegistrationsController < ApplicationController
   prepend_before_filter :require_no_authentication, :only => [ :cancel ]
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
+  prepend_before_filter :require_admin, :only => [:create, :new]
   include Devise::Controllers::InternalHelpers
-  
-  load_and_authorize_resource :user
 
   # GET /resource/sign_up
   def new
